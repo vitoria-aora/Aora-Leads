@@ -1,9 +1,15 @@
 import Fastify from 'fastify'
+import cors from '@fastify/cors'
 import { config } from './config.js'
 import { enrichRoute } from './routes/enrich.js'
 import { jobsRoute } from './routes/jobs.js'
 
 const fastify = Fastify({ logger: true })
+
+fastify.register(cors, {
+  origin: config.corsOrigin,
+  methods: ['GET', 'POST'],
+})
 
 fastify.register(enrichRoute)
 fastify.register(jobsRoute)

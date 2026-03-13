@@ -9,4 +9,5 @@ export const config = {
   apiSecretKey: required('API_SECRET_KEY'),
   port: parseInt(process.env.PORT ?? '3000', 10),
   claudeModel: process.env.CLAUDE_MODEL ?? 'claude-sonnet-4-6',
+  corsOrigin: process.env.CORS_ORIGIN ?? false as string | false,
 }
